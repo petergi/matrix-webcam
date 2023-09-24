@@ -155,9 +155,7 @@ def main() -> None:
                     del foreground[idx]
 
             if update_matrix:
-                for _ in range(abs(args.letters)):
-                    dispense.append(random.randint(0, width - 1))
-
+                dispense.extend(random.randint(0, width - 1) for _ in range(abs(args.letters)))
                 for idx, column in enumerate(dispense):
                     foreground.append((0, column))
                     if not random.randint(0, args.probability - 1):
